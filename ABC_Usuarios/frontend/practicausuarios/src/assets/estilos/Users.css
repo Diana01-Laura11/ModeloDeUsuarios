@@ -1,0 +1,57 @@
+table{
+  table-layout:auto;
+  width: 100%;
+  border: 1px solid rgb(44, 44, 44);
+  border-collapse: collapse;
+  margin: 0 0 1em 0;
+  caption-side: top;
+}
+th,td{
+    width: 25%;
+    text-align: center;
+    vertical-align:auto;
+    border-bottom: 1px solid #999;
+}
+
+.imagen{
+    margin-top: 40px;
+    float: left;
+    margin-left: -200px;
+    margin-top: -160px;
+}
+.contenedor{
+    width: 650px;
+    height: 500px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: right;
+    margin-right: 120px;
+    margin-top: 5px;
+}
+.eliminar{
+    background-color:rgb(14, 14, 26);
+    color: aliceblue;
+    border: none;
+    width: 80px;
+    height: 20px;
+    border-radius: 2px 2px 2px 2px;
+}
+.editar{
+    list-style: none;
+    background-color: rgb(163, 163, 172);
+    color: aliceblue;
+    border: none;
+    width: 80px;
+    height: 20px;
+    border-radius: 2px 2px 2px 2px;
+}
+.titulo-tabla{
+    background-color:rgb(14, 14, 26);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+.subtitulo{
+    font-weight: 300;
+    font-size: 14px; 
+}
