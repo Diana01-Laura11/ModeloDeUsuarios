@@ -19,7 +19,7 @@ const Users = () =>{
     const getUsuarios = () => {
         axios.get(url + 'usuarios').then(res => {
             setUsuarios(res.data.usuarios);
-
+            console.log(res.data.usuarios);
         });
     }
     //Se elimina un usuario  con su id

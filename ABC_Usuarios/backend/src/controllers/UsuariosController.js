@@ -1,8 +1,10 @@
-'use string'
+'use strict'
 var Usuario = require('../models/Usuarios');
 
+
+// Objeto para disponer de todos los metodos de ruta (GUARDAR, ENVIAR DATOS, ETC)
 var controller = {
-    save: (req, res) =>{
+    save: (req, res) =>{ // Metodo que guarda los datos
 
 		var params = req.body;
         console.log(params);
@@ -16,7 +18,7 @@ var controller = {
         usuario.numero = params.numero;
 
         // Guardamos el nuevo usuario 
-        usuario.save((err, usuarioStored) => {
+        usuario.save((err, usuarioStored) => { // El metodo save de aqui, es propio de Mongoose
 
             if(err || !usuarioStored){
                 return res.status(404).send({
@@ -30,7 +32,7 @@ var controller = {
             });
         });
     },
-    getUsuarios: (req,res)=>{
+    getUsuarios: (req,res)=>{ // Metodo para poder listar los articulos
         var query = Usuario.find({});
         
         query.sort('-date').exec((err,usuarios) => {
@@ -55,7 +57,7 @@ var controller = {
     },
     //Metodo para eliminar 
     delete: (req,res) =>{
-        var usuarioId = req.params.id;
+        var usuarioId = req.params.id; // Tomamos el id a traves del url  
         
         Usuario.findByIdAndDelete(usuarioId,(err,usuarioRemove)=>{
             if(err){
@@ -78,7 +80,8 @@ var controller = {
     },
     getUsuario: (req,res) =>{
         var usuarioId = req.params.id;
-        Usuario.findById({_id:usuarioId},(err,Getusuario)=>{
+        console.log(req)
+        Usuario.findById({usuarioId}, function (err, Getusuario) {
             if(err){
                 return res.status(500).send({
                     status: 'Error',
@@ -96,6 +99,11 @@ var controller = {
                 usuario: Getusuario
             });
         });
+    },
+
+    updateUsuario: (req, res) => {
+        var usuarioId = req.params.id;
+        // Necesito mas lineas de codigo para poder editar al usuario
     }
 }
 module.exports = controller;

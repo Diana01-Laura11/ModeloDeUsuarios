@@ -12,5 +12,9 @@ router.post('/save',usuario.save);
 router.get('/usuarios',usuario.getUsuarios);
 //Para eliminar los usuarios
 router.delete('/delete/:id',usuario.delete);
+//Para modificar algun usuario
+router.post('/update/:id', usuario.getUsuario)
+
+
 
 module.exports = router;

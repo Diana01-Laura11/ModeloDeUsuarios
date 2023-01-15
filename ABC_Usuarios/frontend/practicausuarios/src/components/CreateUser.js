@@ -31,7 +31,7 @@ const CreateUser = () =>{
         console.log(usuario);
     }
     const sendData = (e) =>{
-        //editamos que al recibir los datos se recargue la pantalla 
+        //evitamos que al recibir los datos se recargue la pantalla 
         e.preventDefault();
         changeState();
         //peticion HTTP con POST para guardar el usuario
