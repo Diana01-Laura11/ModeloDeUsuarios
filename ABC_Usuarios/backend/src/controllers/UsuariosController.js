@@ -102,7 +102,21 @@ var controller = {
     },
 
     updateUsuario: (req, res) => {
-        var usuarioId = req.params.id;
+        
+        Usuario.findOneAndUpdate({_id:req.body._id}, {
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            correo: req.body.correo,
+            numero:req.body.numero
+        }, (err) => {
+            if (err) {
+                res.send("Usuario no actualizado")
+            } else {
+                res.send("Usuario si actualizado")
+            }
+        }
+            
+        )
         // Necesito mas lineas de codigo para poder editar al usuario
     }
 }

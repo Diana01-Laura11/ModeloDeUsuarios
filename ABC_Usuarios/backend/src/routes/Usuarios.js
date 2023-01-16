@@ -13,7 +13,7 @@ router.get('/usuarios',usuario.getUsuarios);
 //Para eliminar los usuarios
 router.delete('/delete/:id',usuario.delete);
 //Para modificar algun usuario
-router.post('/update/:id', usuario.getUsuario)
+router.put('/update', usuario.updateUsuario)
 
 
 

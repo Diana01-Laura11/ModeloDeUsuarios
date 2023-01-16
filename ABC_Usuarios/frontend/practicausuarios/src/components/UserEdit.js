@@ -10,6 +10,8 @@ const UserEdit = () =>{
     const url= Global.url;
     const id=params.id;
 
+    console.log(url)
+
     const [usuario,setUsuario]= useState({
         nombre: null,
         apellido: null,
@@ -68,17 +70,21 @@ const UserEdit = () =>{
     const sendData = (e) =>{
         //editamos que al recibir los datos se recargue la pantalla 
         e.preventDefault();
-        usuarios.map((usuario) => {
-            if(usuario._id == id){
-                console.log(usuario)
-            }
-        } )
+        changeState();
+
+        const actualizar = {...usuario, _id: id}
         //changeState();
         //peticion HTTP con POST para guardar el usuario
         //axios.post(url + 'save', usuario).then(res =>{
           //  setRedirect(true);
             ///console.log(res.data);
         //})
+        console.log(actualizar)
+
+        axios.put(url + 'update', actualizar).then(res => {
+            setRedirect(true)
+            console.log(res.data)
+        })
     }
     
     return(
