@@ -10,16 +10,12 @@ const UserEdit = () =>{
     const url= Global.url;
     const id=params.id;
 
-    console.log(url)
-
     const [usuario,setUsuario]= useState({
         nombre: null,
         apellido: null,
         correo: null,
         numero: null,
     });
-
-    const [redirect,setRedirect] = useState(false);
 
     const[usuarios, setUsuarios] = useState([])
 
@@ -36,16 +32,8 @@ const UserEdit = () =>{
             correo: emailRef.current.value,
             numero: numeroRef.current.value
         });
-        console.log(usuario);
     }
 
-    console.log(usuario)
-/*  
-    const[nombre, setNombre]=useState('');
-    const[apellido,setApellido]=useState('');
-    const[correo,setCorreo]=useState('');
-    const[telefono,setTelefono]=useState('');
-*/
     useEffect(() =>{
         getUsuarios();
     },[usuarios.length]);
@@ -79,10 +67,8 @@ const UserEdit = () =>{
           //  setRedirect(true);
             ///console.log(res.data);
         //})
-        console.log(actualizar)
 
         axios.put(url + 'update', actualizar).then(res => {
-            setRedirect(true)
             console.log(res.data)
         })
     }

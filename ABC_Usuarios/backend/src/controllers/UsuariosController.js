@@ -117,7 +117,7 @@ var controller = {
         }
             
         )
-        // Necesito mas lineas de codigo para poder editar al usuario
+        
     }
 }
 module.exports = controller;
